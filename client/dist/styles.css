@@ -1,0 +1,788 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #F0F9F9;
+}
+
+/* top navigation  */
+
+.topNav {
+  position: absolute;
+  width: 1400px;
+  height: 32px;
+  left: 20px;
+  top: 5px;
+  color: #000000;
+
+}
+
+.navBlock {
+  position: absolute;
+width: 1400px;
+height: 30px;
+left: 20px;
+top: 0px;
+}
+
+.title {
+  position: absolute;
+  left: 20px;
+  top: 30px;
+}
+
+
+.invite {
+  position: absolute;
+left: 264px;
+top: 34px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+display: flex;
+align-items: flex-end;
+
+}
+
+.loginButton {
+  position: absolute;
+  width: 76px;
+  height: 35px;
+  left: 1355px;
+  top: 34px;
+
+  background: white;
+  border-radius: 30px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+
+  color: #000000;
+
+  text-decoration: none;
+  outline: none;
+  border-color: transparent;
+}
+
+
+/* body */
+
+.center {
+  position: absolute;
+width: 1440px;
+height: 600px;
+left: 0px;
+top: 132px;
+}
+
+.house {
+  position: absolute;
+width: 750px;
+height: 600px;
+left: 100px;
+top: 132px;
+}
+
+.userBar {
+  position: absolute;
+width: 305px;
+height: 600px;
+left: 1055px;
+top: 132px;
+}
+
+/* home */
+
+.homeBg {
+  position: absolute;
+width: 750px;
+height: 600px;
+left: 100px;
+top: 132px;
+
+background: #000000;
+opacity: 0.2;
+}
+
+.users {
+  position: static;
+width: 376px;
+height: 360px;
+left: 287px;
+top: 312px;
+}
+
+/* user bins */
+.userAvatar {
+  position: absolute;
+width: 100px;
+height: 100px;
+/* left: 387px; */
+/* top: 312px; */
+}
+
+.userImg {
+width: 100px;
+height: 100px;
+left: 387px;
+top: 312px;
+border-radius: 100px;
+}
+
+.userStatus {
+position: absolute;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+bottom: 5px;
+right: 5px;
+}
+
+
+
+.userTxt {
+  position: absolute;
+width: 150px;
+height: 60px;
+right: 0px;
+top: 20px;
+float: right;
+font-family: Montserrat;
+font-style: normal;
+color: #000000;
+}
+
+.username {
+  /* position: absolute; */
+  width: 150px;
+  height: 30px;
+  left: 502px;
+  top: 332px;
+
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.userStatusTxt {
+  /* position: absolute; */
+width: 150px;
+height: 20px;
+left: 502px;
+top: 372px;
+
+font-weight: 300;
+font-size: 16px;
+line-height: 20px;
+}
+
+/* user positions */
+
+.user0 {
+  position: absolute;
+width: 265px;
+height: 100px;
+left: 250px;
+top: 180px;
+
+}
+
+.user2 {
+  position: absolute;
+width: 265px;
+height: 100px;
+left: 150px;
+top: 300px;
+
+}
+
+.user1 {
+  position: absolute;
+width: 265px;
+height: 100px;
+left: 250px;
+top: 420px;
+
+}
+
+.user3 {
+  position: absolute;
+width: 265px;
+height: 100px;
+left: 440px;
+top: 300px;
+
+}
+
+
+
+/* userbar */
+
+.userBar {
+  position: absolute;
+width: 305px;
+height: 600px;
+left: 1055px;
+top: 132px;
+background: #FFFFFF;
+border-radius: 20px;
+}
+
+.currentUser {
+  position: relative;
+width: 265px;
+height: 100px;
+left: 20px;
+top: 20px;
+
+}
+
+.status {
+  position: absolute;
+  width: 265px;
+  height: 80px;
+  left: 20px;
+  top: 140px;
+}
+
+.statusBg {
+  position: absolute;
+  width: 265px;
+  height: 80px;
+  opacity: 0.2;
+  border-radius: 10px;
+  text-decoration: none;
+  outline: none;
+  border-color: transparent;
+}
+
+
+.statusCircle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 20px;
+  top: 20px;
+  border-radius: 50%;
+
+}
+
+.statusTxt {
+  position: absolute;
+  width: 155px;
+  height: 20px;
+  left: 80px;
+  top: 30px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000000;
+}
+
+/* status positioning */
+.status1 {
+  position: absolute;
+  width: 265px;
+  height: 80px;
+  left: 20px;
+  top: 140px;
+}
+
+.status2 {
+  position: absolute;
+  width: 265px;
+  height: 80px;
+  left: 20px;
+  top: 240px;
+
+}
+
+.status3 {
+  position: absolute;
+  width: 265px;
+  height: 80px;
+  left: 20px;
+  top: 340px;
+}
+
+.status4 {
+  position: absolute;
+  width: 265px;
+  height: 80px;
+  left: 20px;
+  top: 440px;
+}
+
+.status5 {
+  position: absolute;
+  width: 265px;
+  height: 80px;
+  left: 20px;
+  top: 540px;
+}
+
+.homeName {
+  position: absolute;
+left: 595px;
+top: 740px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 200;
+font-size: 37px;
+line-height: 45px;
+text-align: right;
+
+color: #000000;
+
+}
+
+
+
+
+
+/* LOGIN PAGE */
+
+.loginMain {
+  position: absolute;
+width: 851.9px;
+height: 382px;
+left: 314px;
+top: 228px;
+
+}
+
+.signIn {
+  position: absolute;
+  width: 336px;
+  height: 347px;
+  left: 0px;
+  bottom: 0px;
+
+}
+
+.signInLogo {
+  position: relative;
+  width: 200px;
+  height: 30px;
+  left: 71px;
+  top: 0px;
+
+}
+
+.formContainer {
+  position: relative;
+  width: 336px;
+  height: 290px;
+  left: 0px;
+  bottom: 0px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.signInTitle {
+  position: relative;
+  left: 123px;
+top: 20px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #000000;
+}
+
+.username1Input {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 60px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+}
+
+.formTxt {
+  position: absolute;
+left: 12px;
+top: 10px;
+background-color: transparent;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 17px;
+
+color: #000000;
+text-decoration: none;
+outline: none;
+border-color: transparent;
+}
+
+
+.password1Input {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 108px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+}
+
+.submitButton {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 156px;
+
+background: #FFADB2;
+border-radius: 30px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+
+color: #000000;
+
+text-decoration: none;
+outline: none;
+border-color: transparent;
+}
+
+.signUp1 {
+  position: absolute;
+top: 225px;
+left: 75px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+
+color: #000000;
+}
+.girlStudying {
+  position: relative;
+  left: 55.62%;
+right: 19.03%;
+top: 10%;
+bottom: 34.9%;
+}
+
+/* JOIN PAGE  */
+
+.signUpMain {
+  position: absolute;
+  width: 841.9px;
+  height: 683px;
+  left: 304px;
+  top: 126px;
+
+
+}
+
+.signUp {
+  position: absolute;
+  width: 336px;
+  height: 347px;
+  left: 0px;
+  top: 0px;
+
+}
+
+.signUpLogo {
+  position: relative;
+  width: 200px;
+  height: 30px;
+  left: 71px;
+  top: 0px;
+
+}
+
+.signUpFormContainer {
+  position: relative;
+  width: 336px;
+  height: 554px;
+  left: 0px;
+  bottom: 0px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.signUpTitle {
+  position: relative;
+  left: 123px;
+top: 20px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #000000;
+}
+
+.firstNameInput {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 60px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+}
+
+.formTxt {
+  position: absolute;
+left: 12px;
+top: 10px;
+background-color: transparent;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 17px;
+
+color: #000000;
+text-decoration: none;
+outline: none;
+border-color: transparent;
+}
+
+
+.lastNameInput {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 108px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+}
+
+.username2Input {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 156px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+
+}
+
+.password2Input {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 204px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+
+}
+
+.emailInput {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 252px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+
+}
+
+.avatarInput {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 300px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+
+}
+
+.homeCodeInput {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 348px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+
+}
+
+.joinButton {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 396px;
+
+background: #FFADB2;
+border-radius: 30px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+
+color: #000000;
+
+text-decoration: none;
+outline: none;
+border-color: transparent;
+}
+
+.or {
+  position: absolute;
+  left: 50px;
+top: 454px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+}
+
+
+.createButton {
+  position: absolute;
+width: 266px;
+height: 38px;
+left: 36px;
+top: 492px;
+
+background: #FFADB2;
+border-radius: 30px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+
+color: #000000;
+
+text-decoration: none;
+outline: none;
+border-color: transparent;
+}
+
+
+.signUpGirlStudying {
+  position: relative;
+  left: 55.62%;
+right: 19.03%;
+top: 23%;
+bottom: 34.9%;
+}
+
+/* .signUpMain {
+  position: absolute;
+width: 842.9px;
+height: 614px;
+left: 303px;
+top: 113px;
+background-color: red;
+}
+
+.signUp {
+  position: absolute;
+width: 336px;
+height: 614px;
+left: 0px;
+top: 0px;
+background-color: blue;
+}
+
+.signUpLogo {
+  position: absolute;
+width: 200px;
+height: 30.96px;
+left: 71px;
+top: 0px;
+}
+
+.signUpFormContainer {
+  position: absolute;
+  width: 336px;
+  height: 561.37px;
+  left: 303px;
+  top: 165.63px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.signUpTitle {
+  position: absolute;
+width: 99px;
+height: 17px;
+left: 422px;
+top: 185px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+}
+
+.firstNameInput {
+  position: absolute;
+width: 266px;
+height: 39.21px;
+left: 338px;
+top: 240px;
+
+background: rgba(215, 215, 230, 0.34);
+border-radius: 30px;
+}
+
+.lastNameInput {
+  position: absolute;
+width: 266px;
+height: 39.21px;
+left: 339px;
+top: 297px;
+} */

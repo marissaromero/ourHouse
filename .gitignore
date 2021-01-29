@@ -1,0 +1,10 @@
+#node
+node_modules
+
+#mysql login
+database/login.js
+
+#webpack files
+client/dist/bundle.js
+
+
