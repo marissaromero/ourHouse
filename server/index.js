@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+
 const app = express();
 const bodyParser = require('body-parser');
 const db = require('../database');
@@ -7,20 +8,13 @@ const db = require('../database');
 app.use(bodyParser.json());
 app.use('/', express.static(path.resolve(__dirname, '../client/dist')));
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'), (err) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-  });
-});
 
-app.get('./userId')
+// app.get('./userId')
 
-app.get('/homeUsers/:home_id', function (req, res) {
+app.get('/homeUsers/:home_id', (req, res) => {
   const homeId = req.params.home_id;
 
-  const sql = `SELECT * FROM users WHERE homeId = ?`;
+  const sql = 'SELECT * FROM users WHERE homeId = ?';
 
   db.query(sql, homeId, (err, data) => {
     if (err) {
@@ -103,6 +97,15 @@ app.put('/user/:id/:status', function (req, res) {
 // INSERT INTO users (firstName, lastName, username, password, homeId, currentStatus, userAvatar) VALUES ('Dad', 'Romero', 'dad.romero', 'password3', 1, 'status4', 'https://imgur.com/farpWGC');
 
 // UPDATE users SET currentStatus = 'status4' WHERE id = 3
+
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 
 app.listen(8080, function() {
   console.log('listening on port 8080!');

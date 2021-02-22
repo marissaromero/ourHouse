@@ -66,6 +66,6 @@ function Login() {
       <img className="girlStudying" alt="Student studying" src="images/girlStudying.svg" />
     </div>
   );
-};
+}
 
 export default Login;

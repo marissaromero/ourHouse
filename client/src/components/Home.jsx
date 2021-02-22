@@ -1,148 +1,116 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios'
-import House from './House.jsx'
-import TopNav from './TopNav.jsx'
-import UserBar from './UserBar.jsx'
+import axios from 'axios';
+import House from './House.jsx';
+import TopNav from './TopNav.jsx';
+import UserBar from './UserBar.jsx';
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentUser: '',
-      currentStatus:'',
-      users: [],
-      homeName: '',
-      statusList: [['status1', 'Free', '#97F58F'], ['status2', 'In class lecture', '#1ADFFA'], ['status3', 'Doing Homework', '#FAA61A'], ['status4', 'Busy', '#FC0A0A']],
-      color:'',
-      message: '',
-      loaded: false
+function Home() {
+  const [user, setUser] = useState('');
+  const [currentStatus, setCurrentStatus] = useState('');
+  const [homeMembers, setHomeMembers] = useState([]);
+  const [homeName, setHomeName] = useState('');
+  const [statusList] = useState([['status1', 'Free', '#97F58F'], ['status2', 'In class lecture', '#1ADFFA'], ['status3', 'Doing Homework', '#FAA61A'], ['status4', 'Busy', '#FC0A0A']]);
+  const [color, setColor] = useState('');
+  const [message, setMessage] = useState('');
+  const [loaded, setLoaded] = useState(false);
+
+  const updateMessageColor = () => {
+    if (currentStatus === 'status1') {
+      setColor('#97F58F');
+      setMessage('Free');
     }
-    this.fetchCurrentUser = this.fetchCurrentUser.bind(this)
-    this.fetchAllUsers = this.fetchAllUsers.bind(this)
-    this.fetchHomeName = this.fetchHomeName.bind(this)
-    this.updateCurrent = this.updateCurrent.bind(this)
-    this.updateMessageColor= this.updateMessageColor.bind(this)
-  }
+    if (currentStatus === 'status2') {
+      setColor('#1ADFFA');
+      setMessage('In class lecture');
+    }
+    if (currentStatus === 'status3') {
+      setColor('#FAA61A');
+      setMessage('Doing Homework');
+    }
+    if (currentStatus === 'status4') {
+      setColor('#FC0A0A');
+      setMessage('Busy');
+    }
+  };
 
-  componentDidMount() {
-    this.fetchCurrentUser()
-    this.fetchAllUsers()
-    this.fetchHomeName()
-  }
-
-  fetchCurrentUser() {
+  const fetchCurrentUser = () => {
     axios.get('/user/2')
-      .then(({data}) => {
-        this.setState({
-          currentUser: data[0].firstName,
-          currentStatus: data[0].currentStatus
-        })
+      .then(({ data }) => {
+        setUser(data[0].firstnName);
+        setCurrentStatus(data[0].currentStatus);
       })
       .then(() => {
-        this.updateMessageColor()
+        updateMessageColor();
       })
       .then(() => {
-        this.setState({
-          loaded: true
-        })
-      })
+        setLoaded(true);
+      });
+  };
 
-  }
-
-  fetchAllUsers() {
+  const fetchAllUsers = () => {
     axios.get('/homeUsers/1')
-      .then(({data}) => {
-        this.setState({
-          users: data
-        })
-      })
-  }
+      .then(({ data }) => {
+        console.log('look here', data);
+        setHomeMembers(data);
+      });
+  };
 
-  fetchHomeName() {
+  const fetchHomeName = () => {
     axios.get('/homeName/1')
-    .then(({data}) => {
-      this.setState({
-        homeName: data[0].homeName
-      })
-    })
+      .then(({ data }) => {
+        setHomeName(data[0].homeName);
+      });
+  };
 
-
-  }
-
-
-  updateCurrent(status) {
-
+  const updateCurrent = (status) => {
     axios.put(`/user/2/${status}`)
       .then(() => {
-        this.setState ({
-          loaded: false
-        })
+        setLoaded(false);
       })
       .then(() => {
-      this.fetchCurrentUser()
-      })
-      .then(() => {
-        window.location.reload(true);
-      })
-  }
+        fetchCurrentUser();
+      });
+  };
 
-  updateMessageColor() {
-    if (this.state.currentStatus === 'status1') {
-      this.setState({
-        color: "#97F58F",
-        message: 'Free'
-      })
-    }
-    if (this.state.currentStatus === 'status2') {
-      this.setState({
-        color: "#1ADFFA",
-        message: 'In class lecture'
-      })
-    }
-    if (this.state.currentStatus === 'status3') {
-      this.setState({
-        color: "#FAA61A",
-        message: 'Doing Homework'
-      })
-    }
-    if (this.state.currentStatus === 'status4') {
-      this.setState({
-        color: "#FC0A0A",
-        message: 'Busy'
-      })
-    }
-  }
+  useEffect(() => {
+    fetchCurrentUser();
+    fetchAllUsers();
+    fetchHomeName();
+  }, []);
 
-  render () {
-    return (
-      <div className = 'main'>
-        <TopNav />
-        {
-          this.state.loaded &&
-          <div className = 'center'>
-            <div className = 'house'>
-            <img className = 'houseBg' src='/homeBg.svg'></img>
-            <div className = 'users'>
+  return (
+    <div className="main">
+      <TopNav />
+      {
+        loaded
+        &&
+        (
+        <div className="center">
+          <div className="house">
+            <img className="houseBg" alt="outline of house" src="/homeBg.svg" />
+            <div className="users">
               {
-                this.state.users.map ((user, index) => (
-                  <House user = {user.firstName} status = {user.currentStatus} key = {user +'.'+ index} userNum = {'user'+index}updateCurrent = {this.state.updateCurrent} statusList = {this.state.statusList} avatar = {user.userAvatar}/>
+                homeMembers.map((member, index) => (
+                  <House user={member.firstName} status={member.currentStatus} key={`{${member.firstName}.key`} userNum={`user${index}`} updateCurrent={updateCurrent} statusList={statusList} avatar={member.userAvatar} />
                 ))
               }
             </div>
-            </div>
-
-            <UserBar updateCurrent = {this.updateCurrent} currentUser = {this.state.currentUser} currentStatus = {this.state.currentStatus} message = {this.state.message} color = {this.state.color} statusList = {this.state.statusList}/>
-            <div className='homeName'>{this.state.homeName}</div>
           </div>
-        }
-
-      </div>
-
-    )
-  }
+          <UserBar
+            updateCurrent={updateCurrent}
+            currentUser={user}
+            currentStatus={currentStatus}
+            message={message}
+            color={color}
+            statusList={statusList}
+          />
+          <div className="homeName">{homeName}</div>
+        </div>
+        )
+      }
+    </div>
+  );
 }
 
-
 export default Home;
-

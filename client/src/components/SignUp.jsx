@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function SignUp() {
-  const [inputValue, setInputValue] = useState({ firstname: '', lastname: '', username: '', password: '', email: '', homeId: '', avatar: '', userId: 0 });
+  const [inputValue, setInputValue] = useState({ firstname: '', lastname: '', username: '', password: '', email: '', homeId: '', avatar: '', userId: 0
+});
   const {
     firstname, lastname, username, password, email, homeId, avatar, userId
   } = inputValue;
