@@ -88,7 +88,7 @@ function Home() {
         (
         <div className="center">
           <div className="house">
-            <img className="houseBg" alt="outline of house" src="/homeBg.svg" />
+            <img className="houseBg" alt="outline of house" src="/images/homeBg.svg" />
             <div className="users">
               {
                 homeMembers.map((member, index) => (

@@ -13,7 +13,7 @@ class UserBar extends React.Component {
       <div className = 'userBar'>
         <div className = 'currentUser'>
           <div className = 'userAvatar' >
-            <img className = 'userImg' src='/avatar.jpg'></img>
+            <img className = 'userImg' src='/images/avatar.jpg'></img>
             <div className = 'userStatus' style={{ 'background': this.props.color }}></div>
           </div>
           <div className = 'userTxt'>
