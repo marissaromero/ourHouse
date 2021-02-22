@@ -1,34 +1,37 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios'
-import UserStatus from './UserStatus.jsx'
+import UserStatus from './UserStatus.jsx';
 
-class UserBar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render () {
-    return (
-      <div className = 'userBar'>
-        <div className = 'currentUser'>
-          <div className = 'userAvatar' >
-            <img className = 'userImg' src='/images/avatar.jpg'></img>
-            <div className = 'userStatus' style={{ 'background': this.props.color }}></div>
-          </div>
-          <div className = 'userTxt'>
-            <div className = 'username'>{this.props.currentUser}</div>
-            <div className = 'userStatusTxt'>{this.props.message}</div>
-          </div>
+function UserBar({
+  updateCurrent, currentUser, currentStatus, message, color, statusList,
+}) {
+  return (
+    <div className="userBar">
+      <div className="currentUser">
+        <div className="userAvatar">
+          <img className="userImg" alt="current user avatar" src="/images/avatar.jpg" />
+          <div className="userStatus" style={{ background: color }} />
         </div>
-        {
-              this.props.statusList.map ((status, index) => (
-                <UserStatus status = {status[0]} statusTxt = {status[1]} color = {status[2]} key = {status + "." + index} updateCurrent = {this.props.updateCurrent} currentStatus = {this.props.currentStatus} />
-              ))
-            }
+        <div className="userTxt">
+          <div className="username">{currentUser}</div>
+          <div className="userStatusTxt">{message}</div>
+        </div>
       </div>
-    )
-  }
+      {
+            statusList.map((status) => (
+              <UserStatus status={status[0]} statusTxt={status[1]} color={status[2]} key={`${status}.key`} updateCurrent={updateCurrent} currentStatus={currentStatus} />
+            ))
+          }
+    </div>
+  );
 }
+UserBar.propTypes = {
+  updateCurrent: PropTypes.string.isRequired,
+  currentUser: PropTypes.string.isRequired,
+  currentStatus: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  statusList: PropTypes.string.isRequired,
+};
 
 export default UserBar;
