@@ -3,13 +3,13 @@ import React from 'react';
 import UserStatus from './UserStatus.jsx';
 
 function UserBar({
-  updateCurrent, currentUser, currentStatus, message, color, statusList,
+  updateCurrent, currentUser, currentStatus, message, color, statusList, avatar,
 }) {
   return (
     <div className="userBar">
       <div className="currentUser">
         <div className="userAvatar">
-          <img className="userImg" alt="current user avatar" src="/images/avatar.jpg" />
+          <img className="userImg" alt="current user avatar" src={avatar} />
           <div className="userStatus" style={{ background: color }} />
         </div>
         <div className="userTxt">
@@ -26,12 +26,13 @@ function UserBar({
   );
 }
 UserBar.propTypes = {
-  updateCurrent: PropTypes.string.isRequired,
+  updateCurrent: PropTypes.func.isRequired,
   currentUser: PropTypes.string.isRequired,
   currentStatus: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  statusList: PropTypes.string.isRequired,
+  statusList: PropTypes.array.isRequired,
+  avatar: PropTypes.string.isRequired,
 };
 
 export default UserBar;

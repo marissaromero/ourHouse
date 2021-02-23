@@ -14,6 +14,7 @@ function Home() {
   const [color, setColor] = useState('');
   const [message, setMessage] = useState('');
   const [loaded, setLoaded] = useState(false);
+  const [avatar, setAvatar] = useState('');
 
   const updateMessageColor = () => {
     if (currentStatus === 'status1') {
@@ -37,8 +38,9 @@ function Home() {
   const fetchCurrentUser = () => {
     axios.get('/user/2')
       .then(({ data }) => {
-        setUser(data[0].firstnName);
+        setUser(data[0].firstName);
         setCurrentStatus(data[0].currentStatus);
+        setAvatar(data[0].userAvatar);
       })
       .then(() => {
         updateMessageColor();
@@ -104,6 +106,7 @@ function Home() {
             message={message}
             color={color}
             statusList={statusList}
+            avatar={avatar}
           />
           <div className="homeName">{homeName}</div>
         </div>

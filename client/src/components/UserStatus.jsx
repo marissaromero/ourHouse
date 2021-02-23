@@ -1,54 +1,57 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios'
+/* eslint-disable jsx-a11y/control-has-associated-label */
+import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
 
-class UserStatus extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentStatus: false
+function UserStatus({
+  status, statusTxt, color, updateCurrent, currentStatus,
+}) {
+  const [pageStatus, setPageStatus] = useState(false);
+
+  useEffect(() => {
+    if (currentStatus === status) {
+      setPageStatus(true);
     }
+  }, []);
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    if (this.props.currentStatus === this.props.status) {
-      this.setState ({
-        currentStatus: true
-      })
-    }
-  }
-
-  handleClick(event) {
+  const handleClick = (event) => {
     event.preventDefault();
-    this.props.updateCurrent(this.props.status)
-  }
+    updateCurrent(status);
+  };
 
-  render () {
-    return (
-      <div>
-
+  return (
+    <div>
       {
-        this.state.currentStatus &&
-        <div className = {this.props.status}>
-          <div className = 'statusTxt'>{this.props.statusTxt}</div>
-          <button onClick = {this.handleClick} className = 'statusBg' style={{ 'background': this.props.color }} ></button>
-          <div className = 'statusCircle' style={{ 'background': this.props.color }}></div>
+        pageStatus
+        &&
+        (
+        <div className={status}>
+          <div className="statusTxt">{statusTxt}</div>
+          <button onClick={handleClick} className="statusBg" type="button" style={{ background: color }} />
+          <div className="statusCircle" style={{ background: color }} />
         </div>
+        )
       }
       {
-        !this.state.currentStatus &&
-        <div className = {this.props.status}  style={{opacity: '0.5'}} >
-          <div className = 'statusTxt'>{this.props.statusTxt}</div>
-          <button onClick={this.handleClick} className = 'statusBg' style={{ border: "3px solid " + this.props.color}} ></button>
-          <div className = 'statusCircle' style={{ 'background': this.props.color }}></div>
+        !pageStatus
+        &&
+        (
+        <div className={status} style={{ opacity: '0.5' }}>
+          <div className="statusTxt">{statusTxt}</div>
+          <button onClick={handleClick} className="statusBg" type="button" style={{ border: `3px solid ${color}` }} />
+          <div className="statusCircle" style={{ background: color }} />
         </div>
+        )
       }
-      </div>
-
-    )
-  }
+    </div>
+  );
 }
 
 export default UserStatus;
+
+UserStatus.propTypes = {
+  status: PropTypes.string.isRequired,
+  statusTxt: PropTypes.string.isRequired,
+  updateCurrent: PropTypes.func.isRequired,
+  currentStatus: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+};
